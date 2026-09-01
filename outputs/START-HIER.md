@@ -4,6 +4,10 @@ Der klickbare Prototyp liegt in:
 
 `/Users/tim/Documents/Codex/2026-09-01/jo-ja-ich-wei-ja-auch`
 
+## Online ansehen
+
+<https://creator-studio-mvp-coral.vercel.app>
+
 ## Lokal öffnen
 
 1. Terminal öffnen.

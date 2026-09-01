@@ -4,6 +4,10 @@ Ein klickbarer, deutschsprachiger Prototyp für einen Creator-Arbeitsbereich: au
 
 ![Desktop-Vorschau](outputs/creator-studio-desktop.png)
 
+## Live ansehen
+
+[creator-studio-mvp-coral.vercel.app](https://creator-studio-mvp-coral.vercel.app)
+
 ## Enthalten
 
 - Creator-Profil mit lokaler Speicherung im Browser
