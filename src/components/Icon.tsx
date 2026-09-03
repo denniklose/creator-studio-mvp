@@ -22,6 +22,7 @@ export type IconName =
   | 'upload'
   | 'plus'
   | 'link'
+  | 'mail'
   | 'file'
   | 'close'
   | 'more';
@@ -66,6 +67,7 @@ export function Icon({ name, size = 20, ...props }: IconProps) {
     upload: <><path d="M12 16V4M7 9l5-5 5 5" /><path d="M4 15v5h16v-5" /></>,
     plus: <path d="M12 5v14M5 12h14" />,
     link: <><path d="m9.5 14.5 5-5" /><path d="M7.5 17.5H6a4 4 0 0 1 0-8h3M16.5 6.5H18a4 4 0 0 1 0 8h-3" /></>,
+    mail: <><rect x="3" y="5" width="18" height="14" rx="2" /><path d="m4 7 8 6 8-6" /></>,
     file: <><path d="M6 3h8l4 4v14H6z" /><path d="M14 3v5h5M9 13h6M9 17h6" /></>,
     close: <path d="M6 6l12 12M18 6 6 18" />,
     more: <><circle cx="12" cy="5" r="1" fill="currentColor" stroke="none" /><circle cx="12" cy="12" r="1" fill="currentColor" stroke="none" /><circle cx="12" cy="19" r="1" fill="currentColor" stroke="none" /></>,

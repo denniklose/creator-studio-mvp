@@ -1,0 +1,18 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "lib": ["ES2022", "DOM"],
+    "strict": true,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "tsBuildInfoFile": "./node_modules/.cache/tsconfig.api.tsbuildinfo",
+    "noEmit": true,
+    "types": ["node"]
+  },
+  "include": ["api", "src/server", "src/lib/creator.ts"]
+}

@@ -13,13 +13,15 @@ const navigation: Array<{ key: NavKey; label: string; icon: IconName }> = [
 interface AppShellProps {
   active: NavKey;
   projectName: string;
+  youtubeConnected: boolean;
+  isLocalDemo?: boolean;
   children: ReactNode;
   onNavigate: (key: NavKey) => void;
   onOpenProfile: () => void;
   onOpenConnections: () => void;
 }
 
-export function AppShell({ active, projectName, children, onNavigate, onOpenProfile, onOpenConnections }: AppShellProps) {
+export function AppShell({ active, projectName, youtubeConnected, isLocalDemo = false, children, onNavigate, onOpenProfile, onOpenConnections }: AppShellProps) {
   return (
     <div className="app-shell">
       <aside className="sidebar" aria-label="Hauptnavigation">
@@ -48,9 +50,9 @@ export function AppShell({ active, projectName, children, onNavigate, onOpenProf
           <span>{projectName}</span>
           <Icon name="chevron" size={16} className="chevron-down" />
         </button>
-        <button className="connection-status desktop-status" type="button" onClick={onOpenConnections} title="Musterverbindung – keine echten Daten werden abgerufen">
-          <span className="status-dot" />
-          YouTube verbunden
+        <button className="connection-status desktop-status" type="button" onClick={onOpenConnections} title={youtubeConnected ? 'Eigener Kanal ist lesend verbunden.' : 'Optional: eigenen YouTube-Kanal lesend verbinden.'}>
+          <span className={`status-dot ${youtubeConnected ? '' : 'is-off'}`} />
+          {isLocalDemo ? 'Lokale Musteransicht' : youtubeConnected ? 'YouTube verbunden' : 'YouTube optional'}
         </button>
         <div className="top-actions">
           <button className="icon-button" type="button" aria-label="Verbindungen öffnen" onClick={onOpenConnections}>

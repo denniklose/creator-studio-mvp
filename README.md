@@ -1,21 +1,30 @@
-# Creator Studio MVP
+# Creator Studio – privater Pilot
 
-Ein klickbarer, deutschsprachiger Prototyp für einen Creator-Arbeitsbereich: aus Ideen werden strukturierte Kurzvideo-Szenen, mit klaren Prüfschritten vor dem Export.
+Creator Studio hilft eingeladenen Creatorn dabei, aus eigenen Texten, Skripten und SRT-Untertiteln ein editierbares Kurzvideo-Textpaket zu erstellen. Es ist bewusst kein automatischer Content-Fabrik- oder Video-Renderer.
 
-![Desktop-Vorschau](outputs/creator-studio-desktop.png)
+Die App ist als React/Vite-Frontend mit Supabase und Vercel Functions aufgebaut:
 
-## Live ansehen
+- Passwortloser E-Mail-Link für freigeschaltete Pilotnutzer
+- Projekte für 15, 30, 45 oder 60 Sekunden
+- Maximal drei eigene `.txt`, `.md` oder `.srt`-Quellen pro Projekt
+- Echte, strukturierte Textanalyse über Vercel AI Gateway
+- Drei Ideen, fünf Hooks, ein Skript, sechs Szenen und eine Prüfliste
+- Optional: lesende Verbindung zum eigenen YouTube-Kanal
+- Bearbeiten, JSON exportieren und vollständig löschen
+
+Bild, Stimme und MP4-Video sind absichtlich sichtbar vorbereitet, aber deaktiviert. Sie erzeugen keine versteckten Kosten.
+
+## Live-Adresse
 
 [creator-studio-mvp-coral.vercel.app](https://creator-studio-mvp-coral.vercel.app)
 
-## Enthalten
+Ohne hinterlegte Produktionszugänge zeigt die Adresse nur die sichere Zugangssperre bzw. eine klar gekennzeichnete lokale Musteransicht. Sie ruft keine KI und kein YouTube auf.
 
-- Creator-Profil mit lokaler Speicherung im Browser
-- Bereiche für Heute, Bibliothek, Analyse, Studio und Exporte
-- Sechs editierbare Szenen mit Bild, Skript und Generierungshinweis
-- Entwicklungspartner mit übernehmbaren Textverbesserungen
-- Kostenanzeige vor einer Vorschau
-- Mobile Prüfliste, Freigabe und lokaler Projekt-Export als JSON
+## Was vor dem echten Pilot noch erledigt werden muss
+
+Die komplette, einfache Schritt-für-Schritt-Anleitung liegt in [PILOT_SETUP.md](PILOT_SETUP.md).
+
+Kurz gesagt: Tim richtet Supabase, Vercel AI Gateway und Google OAuth ein und trägt die Secrets nur in Vercel ein. Danach können die 1–3 Pilot-E-Mail-Adressen freigeschaltet werden.
 
 ## Lokal starten
 
@@ -24,15 +33,21 @@ npm install
 npm run dev
 ```
 
-Danach die im Terminal angezeigte Adresse im Browser öffnen.
-
-## Transparente MVP-Grenze
-
-Dieser Stand enthält bewusst keine live verbundenen YouTube-, OpenAI-, Video- oder Stimmenanbieter. Die Oberfläche verwendet lokale Musterdaten, löst keine kostenpflichtigen AI-Aufrufe aus und erzeugt kein vorgetäuschtes MP4. Für eine Produktivversion gehören Anbieter-Zugangsdaten und Abrechnung in eine abgesicherte Server-Schicht.
+Das startet nur die visuelle Oberfläche auf Port 5173. Für Login, KI und YouTube lokal zuerst `.env.example` nach `.env.local` kopieren, die Werte eintragen und dann `npm run dev:full` verwenden. Dieser vollständige lokale Server läuft auf Port 3000. Niemals `.env.local` committen.
 
 ## Prüfen
 
 ```bash
 npm run typecheck
+npm test
 npm run build
 ```
+
+## Sicherheitsgrundsätze
+
+- Keine Schlüssel, Tokens oder Pilottexte gehören in GitHub, Chat oder Messenger.
+- Der Browser erhält nur die Supabase-Projektadresse und den öffentlichen Publishable Key.
+- Die Service-Role, Google-Secret und YouTube-Tokens bleiben ausschließlich auf dem Server.
+- Row Level Security sorgt dafür, dass ein Nutzer nur seine eigenen Daten sieht.
+- Nicht eingeladene E-Mail-Adressen erhalten keinen Pilotzugang.
+- Das Modell liefert Vorschläge, keine Fakten- oder Erfolgs-Garantie.

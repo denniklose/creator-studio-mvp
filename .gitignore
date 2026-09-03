@@ -5,6 +5,8 @@ vite.config.js
 vite.config.d.ts
 .DS_Store
 work/
+supabase/.temp/
 .vercel/
 .vercel
 .env*
+!.env.example
